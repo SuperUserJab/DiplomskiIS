@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EvidencijaUdruzenjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BrojParcele">
+    <Key>
+      <PropertyRef Name="ParcelaID" />
+    </Key>
+    <Property Name="ParcelaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BrojParcele1" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Kvadratura" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Klijent" Relationship="Self.KlijentParcela" FromRole="BrojParcele" ToRole="Klijent" />
+    <NavigationProperty Name="Mjesto" Relationship="Self.MjestoParcela" FromRole="BrojParcele" ToRole="Mjesto" />
+  </EntityType>
+  <EntityType Name="Finansije">
+    <Key>
+      <PropertyRef Name="FinansijeID" />
+    </Key>
+    <Property Name="FinansijeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Prihodi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Rashodi" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="FinansijskiRezultat" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="Godina" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Izvjestaj" Relationship="Self.FK__Izvjestaj__Finan__30F848ED" FromRole="Finansije" ToRole="Izvjestaj" />
+  </EntityType>
+  <EntityType Name="Izvjestaj">
+    <Key>
+      <PropertyRef Name="IzvjestajID" />
+    </Key>
+    <Property Name="IzvjestajID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KategorijaID" Type="Int32" Nullable="false" />
+    <Property Name="FinansijeID" Type="Int32" Nullable="false" />
+    <Property Name="MjestoID" Type="Int32" Nullable="false" />
+    <Property Name="Tip" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Finansije" Relationship="Self.FK__Izvjestaj__Finan__30F848ED" FromRole="Izvjestaj" ToRole="Finansije" />
+    <NavigationProperty Name="Kategorija" Relationship="Self.FK__Izvjestaj__Kateg__300424B4" FromRole="Izvjestaj" ToRole="Kategorija" />
+    <NavigationProperty Name="Mjesto" Relationship="Self.FK__Izvjestaj__Mjest__31EC6D26" FromRole="Izvjestaj" ToRole="Mjesto" />
+    <NavigationProperty Name="Korisnik" Relationship="Self.FK__Korisnik__Izvjes__3D5E1FD2" FromRole="Izvjestaj" ToRole="Korisnik" />
+  </EntityType>
+  <EntityType Name="Kategorija">
+    <Key>
+      <PropertyRef Name="KategorijaID" />
+    </Key>
+    <Property Name="KategorijaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Vrsta" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cijena" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Detalji" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Izvjestaj" Relationship="Self.FK__Izvjestaj__Kateg__300424B4" FromRole="Kategorija" ToRole="Izvjestaj" />
+    <NavigationProperty Name="Klijent" Relationship="Self.KlijentKategorija" FromRole="Kategorija" ToRole="Klijent" />
+  </EntityType>
+  <EntityType Name="Klijent">
+    <Key>
+      <PropertyRef Name="KlijentID" />
+    </Key>
+    <Property Name="KlijentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Adresa" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Ziroracun" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Vlasnistvo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Kolicina" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Detalji" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Aktivan" Type="Boolean" />
+    <NavigationProperty Name="Kategorija" Relationship="Self.KlijentKategorija" FromRole="Klijent" ToRole="Kategorija" />
+    <NavigationProperty Name="BrojParcele" Relationship="Self.KlijentParcela" FromRole="Klijent" ToRole="BrojParcele" />
+  </EntityType>
+  <EntityType Name="Korisnik">
+    <Key>
+      <PropertyRef Name="KorisnikID" />
+    </Key>
+    <Property Name="KorisnikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KorisnickoIme" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Lozinka" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UlogaID" Type="Int32" Nullable="false" />
+    <Property Name="IzvjestajID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Izvjestaj" Relationship="Self.FK__Korisnik__Izvjes__3D5E1FD2" FromRole="Korisnik" ToRole="Izvjestaj" />
+    <NavigationProperty Name="Uloga" Relationship="Self.FK__Korisnik__UlogaI__2C3393D0" FromRole="Korisnik" ToRole="Uloga" />
+    <NavigationProperty Name="Termini" Relationship="Self.FK__Termini__Korisni__2B3F6F97" FromRole="Korisnik" ToRole="Termini" />
+  </EntityType>
+  <EntityType Name="Mjesto">
+    <Key>
+      <PropertyRef Name="MjestoID" />
+    </Key>
+    <Property Name="MjestoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Detalji" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Izvjestaj" Relationship="Self.FK__Izvjestaj__Mjest__31EC6D26" FromRole="Mjesto" ToRole="Izvjestaj" />
+    <NavigationProperty Name="BrojParcele" Relationship="Self.MjestoParcela" FromRole="Mjesto" ToRole="BrojParcele" />
+  </EntityType>
+  <EntityType Name="Termini">
+    <Key>
+      <PropertyRef Name="TerminID" />
+    </Key>
+    <Property Name="TerminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Prezime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Mail" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Telefon" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Svrha" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KorisnikID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Korisnik" Relationship="Self.FK__Termini__Korisni__2B3F6F97" FromRole="Termini" ToRole="Korisnik" />
+  </EntityType>
+  <EntityType Name="Uloga">
+    <Key>
+      <PropertyRef Name="UlogaID" />
+    </Key>
+    <Property Name="UlogaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naziv" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Korisnik" Relationship="Self.FK__Korisnik__UlogaI__2C3393D0" FromRole="Uloga" ToRole="Korisnik" />
+    <NavigationProperty Name="Vijesti" Relationship="Self.FK__Vijesti__UlogaID__2D27B809" FromRole="Uloga" ToRole="Vijesti" />
+  </EntityType>
+  <EntityType Name="Vijesti">
+    <Key>
+      <PropertyRef Name="VijestID" />
+    </Key>
+    <Property Name="VijestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naslov" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Datum" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UlogaID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Uloga" Relationship="Self.FK__Vijesti__UlogaID__2D27B809" FromRole="Vijesti" ToRole="Uloga" />
+  </EntityType>
+  <Association Name="FK__Izvjestaj__Finan__30F848ED">
+    <End Role="Finansije" Type="Self.Finansije" Multiplicity="1" />
+    <End Role="Izvjestaj" Type="Self.Izvjestaj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Finansije">
+        <PropertyRef Name="FinansijeID" />
+      </Principal>
+      <Dependent Role="Izvjestaj">
+        <PropertyRef Name="FinansijeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Izvjestaj__Kateg__300424B4">
+    <End Role="Kategorija" Type="Self.Kategorija" Multiplicity="1" />
+    <End Role="Izvjestaj" Type="Self.Izvjestaj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategorija">
+        <PropertyRef Name="KategorijaID" />
+      </Principal>
+      <Dependent Role="Izvjestaj">
+        <PropertyRef Name="KategorijaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Izvjestaj__Mjest__31EC6D26">
+    <End Role="Mjesto" Type="Self.Mjesto" Multiplicity="1" />
+    <End Role="Izvjestaj" Type="Self.Izvjestaj" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mjesto">
+        <PropertyRef Name="MjestoID" />
+      </Principal>
+      <Dependent Role="Izvjestaj">
+        <PropertyRef Name="MjestoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Korisnik__Izvjes__3D5E1FD2">
+    <End Role="Izvjestaj" Type="Self.Izvjestaj" Multiplicity="1" />
+    <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Izvjestaj">
+        <PropertyRef Name="IzvjestajID" />
+      </Principal>
+      <Dependent Role="Korisnik">
+        <PropertyRef Name="IzvjestajID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Korisnik__UlogaI__2C3393D0">
+    <End Role="Uloga" Type="Self.Uloga" Multiplicity="1" />
+    <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uloga">
+        <PropertyRef Name="UlogaID" />
+      </Principal>
+      <Dependent Role="Korisnik">
+        <PropertyRef Name="UlogaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Termini__Korisni__2B3F6F97">
+    <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+    <End Role="Termini" Type="Self.Termini" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Korisnik">
+        <PropertyRef Name="KorisnikID" />
+      </Principal>
+      <Dependent Role="Termini">
+        <PropertyRef Name="KorisnikID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vijesti__UlogaID__2D27B809">
+    <End Role="Uloga" Type="Self.Uloga" Multiplicity="1" />
+    <End Role="Vijesti" Type="Self.Vijesti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Uloga">
+        <PropertyRef Name="UlogaID" />
+      </Principal>
+      <Dependent Role="Vijesti">
+        <PropertyRef Name="UlogaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="KlijentKategorija">
+    <End Role="Kategorija" Type="Self.Kategorija" Multiplicity="*" />
+    <End Role="Klijent" Type="Self.Klijent" Multiplicity="*" />
+  </Association>
+  <Association Name="KlijentParcela">
+    <End Role="BrojParcele" Type="Self.BrojParcele" Multiplicity="*" />
+    <End Role="Klijent" Type="Self.Klijent" Multiplicity="*" />
+  </Association>
+  <Association Name="MjestoParcela">
+    <End Role="BrojParcele" Type="Self.BrojParcele" Multiplicity="*" />
+    <End Role="Mjesto" Type="Self.Mjesto" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="EvidencijaUdruzenjeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BrojParcele" EntityType="Self.BrojParcele" />
+    <EntitySet Name="Finansije" EntityType="Self.Finansije" />
+    <EntitySet Name="Izvjestaj" EntityType="Self.Izvjestaj" />
+    <EntitySet Name="Kategorija" EntityType="Self.Kategorija" />
+    <EntitySet Name="Klijent" EntityType="Self.Klijent" />
+    <EntitySet Name="Korisnik" EntityType="Self.Korisnik" />
+    <EntitySet Name="Mjesto" EntityType="Self.Mjesto" />
+    <EntitySet Name="Termini" EntityType="Self.Termini" />
+    <EntitySet Name="Uloga" EntityType="Self.Uloga" />
+    <EntitySet Name="Vijesti" EntityType="Self.Vijesti" />
+    <AssociationSet Name="FK__Izvjestaj__Finan__30F848ED" Association="Self.FK__Izvjestaj__Finan__30F848ED">
+      <End Role="Finansije" EntitySet="Finansije" />
+      <End Role="Izvjestaj" EntitySet="Izvjestaj" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Izvjestaj__Kateg__300424B4" Association="Self.FK__Izvjestaj__Kateg__300424B4">
+      <End Role="Kategorija" EntitySet="Kategorija" />
+      <End Role="Izvjestaj" EntitySet="Izvjestaj" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Izvjestaj__Mjest__31EC6D26" Association="Self.FK__Izvjestaj__Mjest__31EC6D26">
+      <End Role="Mjesto" EntitySet="Mjesto" />
+      <End Role="Izvjestaj" EntitySet="Izvjestaj" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Korisnik__Izvjes__3D5E1FD2" Association="Self.FK__Korisnik__Izvjes__3D5E1FD2">
+      <End Role="Izvjestaj" EntitySet="Izvjestaj" />
+      <End Role="Korisnik" EntitySet="Korisnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Korisnik__UlogaI__2C3393D0" Association="Self.FK__Korisnik__UlogaI__2C3393D0">
+      <End Role="Uloga" EntitySet="Uloga" />
+      <End Role="Korisnik" EntitySet="Korisnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Termini__Korisni__2B3F6F97" Association="Self.FK__Termini__Korisni__2B3F6F97">
+      <End Role="Korisnik" EntitySet="Korisnik" />
+      <End Role="Termini" EntitySet="Termini" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vijesti__UlogaID__2D27B809" Association="Self.FK__Vijesti__UlogaID__2D27B809">
+      <End Role="Uloga" EntitySet="Uloga" />
+      <End Role="Vijesti" EntitySet="Vijesti" />
+    </AssociationSet>
+    <AssociationSet Name="KlijentKategorija" Association="Self.KlijentKategorija">
+      <End Role="Kategorija" EntitySet="Kategorija" />
+      <End Role="Klijent" EntitySet="Klijent" />
+    </AssociationSet>
+    <AssociationSet Name="KlijentParcela" Association="Self.KlijentParcela">
+      <End Role="BrojParcele" EntitySet="BrojParcele" />
+      <End Role="Klijent" EntitySet="Klijent" />
+    </AssociationSet>
+    <AssociationSet Name="MjestoParcela" Association="Self.MjestoParcela">
+      <End Role="BrojParcele" EntitySet="BrojParcele" />
+      <End Role="Mjesto" EntitySet="Mjesto" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

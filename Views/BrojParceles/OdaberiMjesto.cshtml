@@ -1,0 +1,36 @@
+﻿@model DiplomskiISpoljoprivreda.Models.OdaberiMjestoVM
+
+<h2>OdaberiMjesto</h2>
+
+<!DOCTYPE html>
+
+@{ 
+    Model.ParcelaId = Model.ParcelaId;
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div class="row">
+        
+        @using (Html.BeginForm("OdaberiMjestoSave", "BrojParceles"))
+        {
+            <fieldset>
+                Mjesta:
+
+                @Html.DropDownListFor(m => m.MjestoId, Model.Mjesta)
+                
+                <p>
+                  
+                </p>
+                <p>
+                    <input type="submit" , value="Submit" />
+                </p>
+            </fieldset>
+        }
+    </div>
+   
+</body>
+</html>

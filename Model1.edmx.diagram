@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bc41ceba0a034803b20b6347278590fa" Name="Diagram1">
+        <EntityTypeShape EntityType="EvidencijaUdruzenjeModel.BrojParcele" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaUdruzenjeModel.Finansije" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaUdruzenjeModel.Izvjestaj" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaUdruzenjeModel.Kategorija" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaUdruzenjeModel.Klijent" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaUdruzenjeModel.Korisnik" Width="1.5" PointX="7.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaUdruzenjeModel.Mjesto" Width="1.5" PointX="2.375" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaUdruzenjeModel.Termini" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaUdruzenjeModel.Uloga" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EvidencijaUdruzenjeModel.Vijesti" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="EvidencijaUdruzenjeModel.FK__Izvjestaj__Finan__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="EvidencijaUdruzenjeModel.FK__Izvjestaj__Kateg__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="EvidencijaUdruzenjeModel.FK__Izvjestaj__Mjest__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="EvidencijaUdruzenjeModel.FK__Korisnik__Izvjes__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="EvidencijaUdruzenjeModel.FK__Korisnik__UlogaI__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="EvidencijaUdruzenjeModel.FK__Termini__Korisni__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="EvidencijaUdruzenjeModel.FK__Vijesti__UlogaID__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="EvidencijaUdruzenjeModel.KlijentKategorija" ManuallyRouted="false" />
+        <AssociationConnector Association="EvidencijaUdruzenjeModel.KlijentParcela" ManuallyRouted="false" />
+        <AssociationConnector Association="EvidencijaUdruzenjeModel.MjestoParcela" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

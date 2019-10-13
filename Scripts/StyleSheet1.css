@@ -1,0 +1,76 @@
+﻿#photos {
+
+    position:fixed;
+    width:240px;
+    height:140px;
+    padding:10px;
+    border: solid 1px #D2D2D2;
+    -webkit-box-shadow: 0 6px 6px -6px grey;
+    -moz-box-shadow:  0 6px 6px -6px grey;
+    box-shadow:0 6px 6px -6px grey;
+
+}
+
+ #photos img {
+        display:inline-block;
+        position:absolute;
+        top:10px;
+        left:10px;
+        float:right
+
+
+    }
+ body {
+    margin:0;
+    padding:0;
+    background:#000000;
+}
+#donji {
+position:absolute;
+height:30px;
+width:auto;
+
+
+    margin-left:20px;
+    margin-top:105px;
+    margin-bottom:30px;
+    margin-right:0px;
+    text-align:center;
+    text-decoration:none;
+    color:#ff0000;
+
+}
+header{
+   
+    height: 100px;
+    background-attachment: fixed; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:90%;
+    text-align:center;
+}
+
+header p
+{
+    margin-top:0px;
+    font-size:27px;
+    font-style: italic;
+    
+}
+header h1
+{
+    font-size:80px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align:center;
+    float:right;
+    
+}
+
+
+.background-container
+{
+    text-align:center;
+    color:white;
+    padding-top:150px;
+    opacity: 0.7;
+}

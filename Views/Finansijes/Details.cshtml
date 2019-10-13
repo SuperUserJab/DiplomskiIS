@@ -1,0 +1,50 @@
+﻿@model DiplomskiISpoljoprivreda.Finansije
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Finansije</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Prihodi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prihodi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rashodi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rashodi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FinansijskiRezultat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FinansijskiRezultat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Godina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Godina)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FinansijeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

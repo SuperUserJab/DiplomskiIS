@@ -1,0 +1,42 @@
+﻿@model DiplomskiISpoljoprivreda.BrojParcele
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BrojParcele</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojParcele1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojParcele1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Opis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Opis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kvadratura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kvadratura)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ParcelaID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

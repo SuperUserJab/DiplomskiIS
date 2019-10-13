@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EvidencijaUdruzenjeModelStoreContainer" CdmEntityContainer="EvidencijaUdruzenjeEntities">
+    <EntitySetMapping Name="BrojParcele">
+      <EntityTypeMapping TypeName="EvidencijaUdruzenjeModel.BrojParcele">
+        <MappingFragment StoreEntitySet="BrojParcele">
+          <ScalarProperty Name="ParcelaID" ColumnName="ParcelaID" />
+          <ScalarProperty Name="BrojParcele1" ColumnName="BrojParcele" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Kvadratura" ColumnName="Kvadratura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Finansije">
+      <EntityTypeMapping TypeName="EvidencijaUdruzenjeModel.Finansije">
+        <MappingFragment StoreEntitySet="Finansije">
+          <ScalarProperty Name="FinansijeID" ColumnName="FinansijeID" />
+          <ScalarProperty Name="Prihodi" ColumnName="Prihodi" />
+          <ScalarProperty Name="Rashodi" ColumnName="Rashodi" />
+          <ScalarProperty Name="FinansijskiRezultat" ColumnName="FinansijskiRezultat" />
+          <ScalarProperty Name="Godina" ColumnName="Godina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Izvjestaj">
+      <EntityTypeMapping TypeName="EvidencijaUdruzenjeModel.Izvjestaj">
+        <MappingFragment StoreEntitySet="Izvjestaj">
+          <ScalarProperty Name="IzvjestajID" ColumnName="IzvjestajID" />
+          <ScalarProperty Name="KategorijaID" ColumnName="KategorijaID" />
+          <ScalarProperty Name="FinansijeID" ColumnName="FinansijeID" />
+          <ScalarProperty Name="MjestoID" ColumnName="MjestoID" />
+          <ScalarProperty Name="Tip" ColumnName="Tip" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategorija">
+      <EntityTypeMapping TypeName="EvidencijaUdruzenjeModel.Kategorija">
+        <MappingFragment StoreEntitySet="Kategorija">
+          <ScalarProperty Name="KategorijaID" ColumnName="KategorijaID" />
+          <ScalarProperty Name="Vrsta" ColumnName="Vrsta" />
+          <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+          <ScalarProperty Name="Detalji" ColumnName="Detalji" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Klijent">
+      <EntityTypeMapping TypeName="EvidencijaUdruzenjeModel.Klijent">
+        <MappingFragment StoreEntitySet="Klijent">
+          <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Ziroracun" ColumnName="Ziroracun" />
+          <ScalarProperty Name="Vlasnistvo" ColumnName="Vlasnistvo" />
+          <ScalarProperty Name="Kolicina" ColumnName="Kolicina" />
+          <ScalarProperty Name="Detalji" ColumnName="Detalji" />
+          <ScalarProperty Name="Aktivan" ColumnName="Aktivan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Korisnik">
+      <EntityTypeMapping TypeName="EvidencijaUdruzenjeModel.Korisnik">
+        <MappingFragment StoreEntitySet="Korisnik">
+          <ScalarProperty Name="KorisnikID" ColumnName="KorisnikID" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="KorisnickoIme" ColumnName="KorisnickoIme" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Lozinka" ColumnName="Lozinka" />
+          <ScalarProperty Name="UlogaID" ColumnName="UlogaID" />
+          <ScalarProperty Name="IzvjestajID" ColumnName="IzvjestajID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mjesto">
+      <EntityTypeMapping TypeName="EvidencijaUdruzenjeModel.Mjesto">
+        <MappingFragment StoreEntitySet="Mjesto">
+          <ScalarProperty Name="MjestoID" ColumnName="MjestoID" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+          <ScalarProperty Name="Detalji" ColumnName="Detalji" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Termini">
+      <EntityTypeMapping TypeName="EvidencijaUdruzenjeModel.Termini">
+        <MappingFragment StoreEntitySet="Termini">
+          <ScalarProperty Name="TerminID" ColumnName="TerminID" />
+          <ScalarProperty Name="Ime" ColumnName="Ime" />
+          <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Svrha" ColumnName="Svrha" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="KorisnikID" ColumnName="KorisnikID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Uloga">
+      <EntityTypeMapping TypeName="EvidencijaUdruzenjeModel.Uloga">
+        <MappingFragment StoreEntitySet="Uloga">
+          <ScalarProperty Name="UlogaID" ColumnName="UlogaID" />
+          <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vijesti">
+      <EntityTypeMapping TypeName="EvidencijaUdruzenjeModel.Vijesti">
+        <MappingFragment StoreEntitySet="Vijesti">
+          <ScalarProperty Name="VijestID" ColumnName="VijestID" />
+          <ScalarProperty Name="Naslov" ColumnName="Naslov" />
+          <ScalarProperty Name="Opis" ColumnName="Opis" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="UlogaID" ColumnName="UlogaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="KlijentKategorija" TypeName="EvidencijaUdruzenjeModel.KlijentKategorija" StoreEntitySet="KlijentKategorija">
+      <EndProperty Name="Kategorija">
+        <ScalarProperty Name="KategorijaID" ColumnName="KategorijaID" />
+      </EndProperty>
+      <EndProperty Name="Klijent">
+        <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="KlijentParcela" TypeName="EvidencijaUdruzenjeModel.KlijentParcela" StoreEntitySet="KlijentParcela">
+      <EndProperty Name="BrojParcele">
+        <ScalarProperty Name="ParcelaID" ColumnName="ParcelaID" />
+      </EndProperty>
+      <EndProperty Name="Klijent">
+        <ScalarProperty Name="KlijentID" ColumnName="KlijentID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="MjestoParcela" TypeName="EvidencijaUdruzenjeModel.MjestoParcela" StoreEntitySet="MjestoParcela">
+      <EndProperty Name="BrojParcele">
+        <ScalarProperty Name="ParcelaID" ColumnName="ParcelaID" />
+      </EndProperty>
+      <EndProperty Name="Mjesto">
+        <ScalarProperty Name="MjestoID" ColumnName="MjestoID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

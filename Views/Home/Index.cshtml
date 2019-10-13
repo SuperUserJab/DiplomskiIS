@@ -1,0 +1,111 @@
+﻿
+@*
+    <link rel="stylesheet" type="text/css" href="StyleSheet1.css">
+    <link rel="stylesheet" type="text/css" href="StyleSheet4.css">
+*@
+
+
+@model DiplomskiISpoljoprivreda.Models.VijestIndexListVM
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<body style="position:static">
+    <div id="home" class="background-container">
+        
+           <h3 class="text-light" >Dobro došli na službenu stranicu Poljoprivrednog udruženja Jablanica</h3>
+          
+
+
+
+                @*
+                <body style="height: 100%; max-width: 100%; background-image: url('../../Content/Slike/Breskve-u-ambalzi-1000x650.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-position: center;">
+
+        <div class="Vanjski">
+                *@
+        <div class="gdlr-color-wrapper no-skin" style="background-color: #00ff21; ">
+
+            <div class="row" position:fixed, background-position:fixed>
+                <div id="photos" >
+                    <img src="~/Content/Slike/Breskve-u-ambalzi-1000x650.jpg" width="400" height="300" />
+                    <img src="~/Content/Slike/maline_sadnice.jpg" width="400" height="300" />
+                    <img src="~/Content/Slike/download.jpg" width="400" height="300" />
+                    <img src="~/Content/Slike/sadnice_maline_polana_i_polka_jesenja_sa-1468787245-698-e.jpg" width="400" height="300" />
+                    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+                    <script>
+                        $(document).ready(function () {
+                            $("#photos img:gt(0)").hide();
+
+                            setInterval(function () {
+                                var current = $('#photos img:visible');
+                                var next = current.next().length ? current.next() : $('#photos img:eq(0)');
+                                current.fadeOut(1000);
+                                next.fadeIn(1000);
+                            }, 3000);
+
+                        });
+
+                    </script>
+                </div>
+            </div>
+            </div>
+
+
+    
+            <div class="row">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Posljednje vijesti</th>
+                            <th>Pročitaj više</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var vijest in Model.Vijesti)
+                        {
+                            <tr>
+                                <td>@vijest.Naslov</td>
+                                <td>
+                                    @Html.ActionLink("Detalji", "Details", "Vijestis", new { id = @vijest.Id }, new { @class = "btn btn-success" })
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <
+
+</div>
+
+    <br />
+ @*<div class="div23 row" style="position:fixed;">*@
+
+    <div class="row">
+                    
+        @*<footer class="footer p-4 bottom" style="position: static;">*@
+                        <div class="container" >
+                            <div class="row">
+                                <div class="col-12 col-sm-4 mb-4">
+                                    <div class="cover">
+                                        <p><strong><span style="color: rgb(115, 115, 115);">Adresa</span></strong></p><p><span style="color: rgb(153, 153, 153);">Bosna i Hercegovina, Jablanica</span></p><p><span style="color: rgb(153, 153, 153);">Doljanka br. 10</span></p><p><span style="color: rgb(153, 153, 153);">88420 Jablanica, BiH</span></p><p><span style="color: rgb(153, 153, 153);">TELEFON: 033-555-323</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4 mb-4">
+                                    <p><strong><span style="color: rgb(115, 115, 115);">Uplate</span></strong></p><p><span style="color: rgb(153, 153, 153);">Žiro račun udruženja</span></p><p><span style="color: rgb(153, 153, 153);">1610000000291108</span></p><p><span style="color: rgb(153, 153, 153);">Vakufska banka</span></p>
+                                </div>
+                                <div class="col-12 col-sm-4 mb-4">
+                                    <p><strong><span style="color: rgb(115, 115, 115);">Korisni linkovi</span></strong></p><p><span style="color: rgb(74, 190, 217); font-size:15px;"><a href="http://www.jablanica.ba" rel="noopener noreferrer" target="_blank">Službena stranica općine Jablanica</a></span></p><p><span style="color: rgb(74, 190, 217); font-size:15px;"><a href="http://www.katastar.ba/" rel="noopener noreferrer" target="_blank">Katastar zemljišta</a></span></p><p><span style="color: rgb(74, 190, 217); font-size:15px;"><a href="https://www.mpsv-hnz-k.ba" rel="noopener noreferrer" target="_blank">Kantonalno Ministarstvo poljoprivrede, šumarstva, vodoprivrede</a></span></p>
+                                </div>
+                            </div>
+                            <div class="copy pt-4 t-c">
+                                Poljoprivredno udruženje Jablanica
+                            </div>
+                        </div>
+                    @*</footer>*@
+    </div>
+    
+      @*  </div>*@
+</body>

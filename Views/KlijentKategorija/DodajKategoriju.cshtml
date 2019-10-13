@@ -1,0 +1,42 @@
+﻿@model DiplomskiISpoljoprivreda.Models.DodajKategorijuVM
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div class="row">
+        @using (Html.BeginForm("DodajKategorijuSnimi", "KlijentKategorija"))
+        {
+            <fieldset>
+                Klijent
+
+                @Html.DropDownListFor(m => m.Klijent, Model.Klijenti)
+                <p>
+                    Parcela
+                    @Html.ListBoxFor(m => m.Kategorija, Model.Kategorije)
+                </p>
+                <p>
+                    <input type="submit" , value="Submit" />
+                </p>
+            </fieldset>
+        }
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</body>
+</html>
